@@ -65,10 +65,10 @@ if (isset($_GET['durum'])&& $_GET['durum']=="cikis") {
 //
 if (isset($_POST['kgorsel_update'])) {
 	$upload_dir='../img/profil';
-	@$tmp_name=$_FILES['kullanici_resim']["tmp_name"]; //ön bellek
+	@$tmp_name=$_FILES['kullanici_resim']["tmp_name"]; 
 	@$name=$_FILES['kullanici_resim']["name"];
 	$benzersizdeger=rand(20000,35000);
-	$imgyol=substr($upload_dir,3)."/".$benzersizdeger.$name; //upload_dir kısmında 6 karakterden sonrasını al.
+	$imgyol=substr($upload_dir,3)."/".$benzersizdeger.$name;
 	@move_uploaded_file($tmp_name,"$upload_dir/$benzersizdeger$name");
 	$guncelle=$db->prepare("UPDATE kullanicilar SET 
          kullanici_resim=:kullanici_resim
@@ -113,10 +113,10 @@ if (isset($_POST['kullanici_bilgileri_update'])) {
 
 if (isset($_POST['logo_update'])) {
 	$upload_dir='../img';
-	@$tmp_name=$_FILES['ayar_logo']["tmp_name"]; //ön bellek
+	@$tmp_name=$_FILES['ayar_logo']["tmp_name"];
 	@$name=$_FILES['ayar_logo']["name"];
 	$benzersizdeger=rand(20000,35000);
-	$imgyol=substr($upload_dir,3)."/".$benzersizdeger.$name; //upload_dir kısmında 6 karakterden sonrasını al.
+	$imgyol=substr($upload_dir,3)."/".$benzersizdeger.$name;
 	@move_uploaded_file($tmp_name,"$upload_dir/$benzersizdeger$name");
 
 	$update=$db->prepare("UPDATE ayar SET
@@ -375,7 +375,7 @@ if (isset($_POST['user_update'])) {
 		kullanici_soyad=:kullanici_soyad,
 		kullanici_tel=:kullanici_tel,
 		kullanici_durum=:kullanici_durum
-		WHERE kullanici_id={$_POST['kullanici_id']}"); //değişken kullanacağımız için süslü parantez içine aldık.
+		WHERE kullanici_id={$_POST['kullanici_id']}"); 
 
 	$update=$kullanicikaydet->execute(array(
 
@@ -417,7 +417,7 @@ if (isset($_POST['menu_update'])) {
 		menu_ust=:menu_ust,
 		menu_seourl=:menu_seourl,
 		menu_durum=:menu_durum
-		WHERE menu_id={$_POST['menu_id']}"); //değişken kullanacağımız için süslü parantez içine aldık.
+		WHERE menu_id={$_POST['menu_id']}"); 
 
 	$update=$menukaydet->execute(array(
 
